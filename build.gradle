@@ -1,0 +1,22 @@
+task hello
+task world
+
+task helloWorld {
+    dependsOn = [world, hello]
+}
+
+
+world {
+    dependsOn << hello
+    doLast{println " World" }
+}
+
+
+hello {
+    doLast { printf(" Hello, ")
+    whatsUp()}
+}
+
+def whatsUp(){
+    println("Hey, glad you are running me")
+}
