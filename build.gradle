@@ -1,22 +1,6 @@
-task hello
-task world
+apply plugin: 'java'
 
-task helloWorld {
-    dependsOn = [world, hello]
-}
-
-
-world {
-    dependsOn << hello
-    doLast{println " World" }
-}
-
-
-hello {
-    doLast { printf(" Hello, ")
-    whatsUp()}
-}
-
-def whatsUp(){
-    println("Hey, glad you are running me")
+task caesar(type: JavaExec){
+    main = 'org.gradle.poetry.Poetry'
+    classpath = sourceSets.main.runtimeClasspath
 }
