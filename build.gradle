@@ -11,6 +11,8 @@ dependencies {
 println configurations.compile.asPath
 
 task runApp(type: JavaExec){
-    main = 'org.gradle.poetry.Poetry'
+    main = 'org.gradle_multi.poetry.Poetry'
     classpath = sourceSets.main.runtimeClasspath
+    println classpath.getAsPath()
+    println main
 }

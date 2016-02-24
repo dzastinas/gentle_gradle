@@ -1,4 +1,4 @@
-package org.gradle.poetry;
+package org.gradle_multi.poetry;
 
 import java.lang.String;
 import java.lang.System;
