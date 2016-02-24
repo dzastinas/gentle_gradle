@@ -3,6 +3,9 @@ package org.gradle.poetry;
 import java.lang.String;
 import java.lang.System;
 import java.util.ArrayList;
+import org.apache.commons.codec.binary.Base64;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class Poetry {
@@ -32,6 +35,12 @@ public class Poetry {
         Poetry p = new Poetry();
         List<String> stringList = p.juliusCaesar();
         p.emit(stringList);
+    }
+
+    public static String encode (String text){
+        Base64 codec = new Base64();
+        byte[] base64 = codec.encode(text.getBytes());
+        return Arrays.toString(base64);
     }
 
 }
