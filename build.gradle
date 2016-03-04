@@ -1,3 +1,12 @@
+plugins {
+    id 'com.gradle.build-receipt' version '1.0'
+}
+buildReceiptLicense {
+    agreementUrl = 'https://gradle.com/terms-of-service'
+
+    agree = 'yes'
+}
+
 allprojects{
     apply plugin: 'java'
 
@@ -31,3 +40,4 @@ task poetry(type: JavaExec){
     main = 'org.gradle_multi.poetry.PoetryEmitter'
     classpath = sourceSets.main.runtimeClasspath
 }
+
