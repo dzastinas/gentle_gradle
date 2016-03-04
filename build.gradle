@@ -1,18 +1,33 @@
-apply plugin: 'java'
+allprojects{
+    apply plugin: 'java'
 
-repositories {
-    mavenCentral()
+    repositories {
+        mavenCentral()
+    }
 }
 
 dependencies {
-    compile 'commons-codec:commons-codec:1.6'
+    compile project(':codec')
+    compile project(':content')
 }
 
-println configurations.compile.asPath
+project(':content'){
+    dependencies{
+        testCompile 'junit:junit:4.9'
+    }
+}
 
-task runApp(type: JavaExec){
-    main = 'org.gradle_multi.poetry.Poetry'
+project(':codec'){
+    dependencies {
+        compile 'commons-codec:commons-codec:1.6'
+    }
+}
+
+task wrapper(type: Wrapper){
+    gradleVersion = '1.0'
+}
+
+task poetry(type: JavaExec){
+    main = 'org.gradle_multi.poetry.PoetryEmitter'
     classpath = sourceSets.main.runtimeClasspath
-    println classpath.getAsPath()
-    println main
 }
