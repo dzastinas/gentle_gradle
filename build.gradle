@@ -33,7 +33,7 @@ project(':codec'){
 }
 
 task wrapper(type: Wrapper){
-    gradleVersion = '1.0'
+    gradleVersion = '2.11'
 }
 
 task poetry(type: JavaExec){
